@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AndroidHCI</string>
+    <string name="title_activity_new_vehicle">NewVehicleActivity</string>
+    <string name="action_settings">Podesavanja</string>
+    <string name="product_name">Registarska oznaka</string>
+    <string name="description">Opis</string>
+    <string name="title_activity_list_all">Svi unosi</string>
+    <string name="upload_f">upload fotografija</string>
+    <string name="fitId">1851 DL</string>
+    <string name="odaberi_sliku">Odaberi sliku</string>
+    <string name="novo_vozilo">Novo vozilo</string>
+    <string name="sva_vozila">Sva Vozila</string>
+    <string name="upload_slike">Upload slike</string>
+    <string name="odabrana_slika">Odabrana slika</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+</resources>

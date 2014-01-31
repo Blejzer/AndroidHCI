@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/newvehicle"
+        android:title="@string/novo_vozilo"/>
+    <item
+        android:id="@+id/gallery"
+        android:title="@string/sva_vozila"/>
+
+</menu>

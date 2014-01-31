@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#d3d3d3"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tvregplate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dip"
+            android:text="@string/product_name"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvdescriptiontitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/imgdesc"
+            android:layout_margin="15dp"
+            android:text="@string/description"
+            android:textColor="@android:color/black" />
+
+        <ba.fit.androidhci.util.TextViewEx
+            android:id="@+id/tvdescription"
+            android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+            android:padding="15sp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/tvdescriptiontitle"
+            android:layout_margin="15dp"
+            android:text="@string/description"
+            android:textColor="@android:color/black" />
+
+        <ImageView
+            android:id="@+id/imgdesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvregplate"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/odabrana_slika"
+            android:src="@drawable/profile" />
+
+        <ProgressBar
+            android:id="@+id/pbardesc"
+            style="@android:style/Widget.ProgressBar.Small.Inverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imgdesc"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="28dp" />
+    </RelativeLayout>
+
+</ScrollView>
