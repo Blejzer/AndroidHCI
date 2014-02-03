@@ -6,7 +6,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#d3d3d3"
+        android:background="#000000"
         android:orientation="vertical" >
 
         <TextView
@@ -17,8 +17,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dip"
             android:text="@string/product_name"
-            android:textColor="@android:color/black"
-            android:textStyle="bold" />
+            android:textColor="@color/grey"
+            android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/tvdescriptiontitle"
@@ -28,18 +28,22 @@
             android:layout_below="@+id/imgdesc"
             android:layout_margin="15dp"
             android:text="@string/description"
-            android:textColor="@android:color/black" />
+            android:textColor="@color/grey"
+            android:textStyle="bold" />
 
         <ba.fit.androidhci.util.TextViewEx
             android:id="@+id/tvdescription"
             android:layout_width="match_parent"
-        	android:layout_height="wrap_content"
-            android:padding="15sp"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/tvdescriptiontitle"
             android:layout_margin="15dp"
+            android:padding="15sp"
             android:text="@string/description"
-            android:textColor="@android:color/black" />
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            android:typeface="sans" />
 
         <ImageView
             android:id="@+id/imgdesc"
@@ -48,7 +52,9 @@
             android:layout_below="@+id/tvregplate"
             android:layout_centerHorizontal="true"
             android:layout_margin="5dp"
+            android:background="@color/blue"
             android:contentDescription="@string/odabrana_slika"
+            android:padding="5dp"
             android:src="@drawable/profile" />
 
         <ProgressBar

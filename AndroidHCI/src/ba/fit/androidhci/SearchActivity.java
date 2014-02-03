@@ -51,6 +51,8 @@ public class SearchActivity extends Activity  implements OnClickListener{
 		inputSearchTerm = (EditText) findViewById(R.id.inputSearchTerm);
 		message = (TextView) findViewById(R.id.tvMessage);
 		
+		message.setText("Unesite cijeli ili parcijalni broj registarskih oznaka.");
+		
 		searchButton.setOnClickListener(this);
 		
 		if (!Utils.isNetworkAvailable(SearchActivity.this)) {
@@ -76,8 +78,10 @@ if (arg0==searchButton) {
 			i.putExtra("link", url_search_vehicles+inputSearchTerm.getText().toString());
 			Log.d("link", i.getExtras().getString("link"));
 			// Closing all previous activities
-			// i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(i);
+			dialog.dismiss();
+			message.setText("Izbrisite stari i unesite novi pojam za pretragu.");
 			// kraj dodanog koda
 
 

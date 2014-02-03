@@ -91,15 +91,12 @@ public class NewVehicleActivity extends Activity implements OnClickListener{
 		}
 		else if (arg0==uploadButton) {
 			
-			if(inputName.getText().toString().compareTo("") == 0 || inputDesc.getText().toString().compareTo("") == 0) {
+			if(inputName.getText().toString().compareTo("") == 0 || inputDesc.getText().toString().compareTo("") == 0 || imagepath==null) {
 			     // Your piece of code for example
-			     Toast toast=Toast.makeText(getApplicationContext(), "Polja 'Naziv' i 'Opis' ne mogu biti prazna!", Toast.LENGTH_SHORT);  
+			     Toast toast=Toast.makeText(getApplicationContext(), "Polja 'Naziv' i 'Opis' ne mogu biti prazna! \nMorate odabrati sliku!", Toast.LENGTH_SHORT);  
 			     toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL, 0, 0);
 			     toast.show();
 			 } else {
-			     // Your code  
-			 
-
 			dialog = ProgressDialog.show(NewVehicleActivity.this, "", "Uploadujem sliku...", true);
 			messageText.setText("Upload je zapoceo.....");
 			//Ovdje dodajem kod za dodavanje proizvoda u bazu
@@ -114,7 +111,7 @@ public class NewVehicleActivity extends Activity implements OnClickListener{
 					uploadFile(imagepath);
 
 				}
-			}).start();    
+			}).start(); 
 			 }
 		}
 
@@ -131,7 +128,7 @@ public class NewVehicleActivity extends Activity implements OnClickListener{
 			imagepath = getPath(selectedImageUri);
 			Bitmap bitmap=BitmapFactory.decodeFile(imagepath);
 			imageview.setImageBitmap(bitmap);
-			messageText.setText("Uploadujem sliku na:" +imagepath);
+			messageText.setText("Uploadujem sliku sa:" + imagepath);
 
 		}
 	}

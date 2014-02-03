@@ -2,15 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#0099cc"
-    android:orientation="vertical"
+    android:background="@color/black_overlay"
     tools:context=".MainScreenActivity" >
 
     <ListView
         android:id="@+id/listview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:cacheColorHint="#00000000" >
+        android:cacheColorHint="@color/white" >
     </ListView>
 
 </RelativeLayout>

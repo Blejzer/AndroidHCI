@@ -1,5 +1,6 @@
 package ba.fit.androidhci;
 
+import ba.fit.androidhci.util.Utils;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +20,10 @@ public class MenuScreenActivity extends Activity {
 		searchButton = (Button) findViewById(R.id.buttonSearchVehicles);
 		allVehiclesButton = (Button) findViewById(R.id.buttonAllVehicles);
 		newVehicleButton = (Button) findViewById(R.id.buttonNewVehicle);
+		
+		if (!Utils.isNetworkAvailable(MenuScreenActivity.this)) {
+			showToast("Nema mrezne konekcije!!!");
+		} 
 
 		searchButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -49,5 +54,9 @@ public class MenuScreenActivity extends Activity {
 				startActivity(i);
 			}
 		});
+	}
+	
+	public void showToast(String msg) {
+
 	}
 }
