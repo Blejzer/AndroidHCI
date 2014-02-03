@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/black_overlay"
+    android:orientation="vertical"
+    tools:context=".MenuScreenActivity" >
+
+    <Button
+        android:id="@+id/buttonAllVehicles"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="50dp"
+        android:text="@string/sva_vozila" />
+
+    <Button
+        android:id="@+id/buttonSearchVehicles"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"	
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/buttonAllVehicles"
+        android:layout_margin="50dp"
+        android:text="@string/search_button_text" />
+
+    <Button
+        android:id="@+id/buttonNewVehicle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/buttonSearchVehicles"
+        android:layout_margin="50dp"
+        android:text="@string/novo_vozilo" />
+
+</RelativeLayout>

@@ -9,6 +9,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,6 +28,7 @@ public class MainScreenActivity extends Activity implements OnItemClickListener 
 
 	List<Item> arrayOfList;
 	ListView listView;
+	private String search_url = "";
 
 	
 	@Override
@@ -37,9 +39,15 @@ public class MainScreenActivity extends Activity implements OnItemClickListener 
 
 		listView = (ListView) findViewById(R.id.listview);
 		listView.setOnItemClickListener(this);
-		
+		if(getIntent().hasExtra("link")){
+			Bundle extras = getIntent().getExtras();
+			search_url = extras.getString("link");
+		} else{
+			search_url = feed;
+		}
+		Log.d("link", search_url);
 		if (Utils.isNetworkAvailable(MainScreenActivity.this)) {
-			new MyTask().execute(feed);
+			new MyTask().execute(search_url);
 		} else {
 			showToast("Nema mrezne konekcije!!!");
 		}
@@ -80,7 +88,7 @@ public class MainScreenActivity extends Activity implements OnItemClickListener 
 			if (null == arrayOfList || arrayOfList.size() == 0) {
 				showToast("Nema podataka sa weba!!!");
 				Intent i = new Intent(getApplicationContext(),
-						NewVehicleActivity.class);
+						MenuScreenActivity.class);
 				// Closing all previous activities
 				i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(i);
@@ -125,6 +133,20 @@ public class MainScreenActivity extends Activity implements OnItemClickListener 
 			// Closing all previous activities
 			ii.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(ii);
+			return true;
+		case R.id.search:
+			Intent iii = new Intent(getApplicationContext(),
+					SearchActivity.class);
+			// Closing all previous activities
+			iii.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(iii);
+			return true;
+		case R.id.main:
+			Intent iv = new Intent(getApplicationContext(),
+					MenuScreenActivity.class);
+			// Closing all previous activities
+			iv.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(iv);
 			return true;
 		}
 		return false;

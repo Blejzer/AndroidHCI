@@ -42,7 +42,7 @@ public class NamesParser {
 			// Building Parameters
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
 			// getting JSON string from URL
-			JSONObject json = jParser.makeHttpRequest(url_all_vehicles, "GET", params);
+			JSONObject json = jParser.makeHttpRequest(url, "GET", params);
 
 			// Check your log cat for JSON reponse
 			Log.d("All Vehicles: ", json.toString());

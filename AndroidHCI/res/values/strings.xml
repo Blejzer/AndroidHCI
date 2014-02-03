@@ -15,7 +15,10 @@
     <string name="upload_slike">Upload slike</string>
     <string name="odabrana_slika">Odabrana slika</string>
     <string name="title_activity_detail">DetailActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="search_button_text">Trazi</string>
+    <string name="search_vehicles">Pretraga</string>
+    <string name="title_activity_menu_screen">MenuScreenActivity</string>
+    <string name="main_screen">Glavni izbornik</string>
 
 </resources>

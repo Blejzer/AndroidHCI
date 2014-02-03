@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/black_overlay"
+    android:orientation="vertical"
+    tools:context=".SearchActivity" >
+
+    <!-- Name Label -->
+
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+		android:layout_marginTop="25dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+        android:text="@string/product_name"
+        android:textColor="@color/white"
+        android:textSize="17dip" />
+
+    <!-- Input Name -->
+
+    <EditText
+        android:id="@+id/inputSearchTerm"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvProductName"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="15dip"
+        android:inputType="text"
+        android:singleLine="true"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/inputSearchTerm"
+        android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+        android:text="@string/search_button_text"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+        android:text=""
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+</RelativeLayout>

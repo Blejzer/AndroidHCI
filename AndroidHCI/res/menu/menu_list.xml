@@ -6,5 +6,11 @@
     <item
         android:id="@+id/gallery"
         android:title="@string/sva_vozila"/>
+    <item
+        android:id="@+id/search"
+        android:title="@string/search_vehicles"/>
+    <item
+        android:id="@+id/main"
+        android:title="@string/main_screen"/>
 
 </menu>

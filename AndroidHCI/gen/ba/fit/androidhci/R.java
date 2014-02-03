@@ -38,36 +38,47 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int profile=0x7f020004;
     }
     public static final class id {
-        public static final int button_selectpic=0x7f090007;
-        public static final int gallery=0x7f090016;
-        public static final int image=0x7f09000d;
-        public static final int imageView1=0x7f090010;
-        public static final int imageView_pic=0x7f090006;
-        public static final int imgLogo=0x7f09000c;
+        public static final int buttonAllVehicles=0x7f090006;
+        public static final int buttonNewVehicle=0x7f090008;
+        public static final int buttonSearchVehicles=0x7f090007;
+        public static final int button_selectpic=0x7f09000a;
+        public static final int gallery=0x7f09001d;
+        public static final int image=0x7f090014;
+        public static final int imageView1=0x7f090017;
+        public static final int imageView_pic=0x7f090009;
+        public static final int imgLogo=0x7f090013;
         public static final int imgdesc=0x7f090002;
-        public static final int inputDesc=0x7f090009;
-        public static final int inputName=0x7f090008;
+        public static final int inputDesc=0x7f09000c;
+        public static final int inputName=0x7f09000b;
+        public static final int inputSearchTerm=0x7f090010;
         public static final int listview=0x7f090005;
-        public static final int messageText=0x7f09000b;
-        public static final int newvehicle=0x7f090015;
-        public static final int pbar=0x7f090014;
+        public static final int main=0x7f09001f;
+        public static final int messageText=0x7f09000e;
+        public static final int newvehicle=0x7f09001c;
+        public static final int pbar=0x7f09001b;
         public static final int pbardesc=0x7f090004;
-        public static final int tvcreated=0x7f09000f;
+        public static final int search=0x7f09001e;
+        public static final int searchButton=0x7f090011;
+        public static final int tvMessage=0x7f090012;
+        public static final int tvProductName=0x7f09000f;
+        public static final int tvcreated=0x7f090016;
         public static final int tvdescription=0x7f090003;
         public static final int tvdescriptiontitle=0x7f090001;
-        public static final int tvname=0x7f09000e;
+        public static final int tvname=0x7f090015;
         public static final int tvregplate=0x7f090000;
-        public static final int tvtextc=0x7f090011;
-        public static final int tvtextu=0x7f090012;
-        public static final int tvupdated=0x7f090013;
-        public static final int uploadButton=0x7f09000a;
+        public static final int tvtextc=0x7f090018;
+        public static final int tvtextu=0x7f090019;
+        public static final int tvupdated=0x7f09001a;
+        public static final int uploadButton=0x7f09000d;
     }
     public static final class layout {
         public static final int activity_detail=0x7f030000;
         public static final int activity_main_screen=0x7f030001;
-        public static final int activity_new_vehicle=0x7f030002;
-        public static final int activity_splashscreen=0x7f030003;
-        public static final int row=0x7f030004;
+        public static final int activity_menu_screen=0x7f030002;
+        public static final int activity_new_vehicle=0x7f030003;
+        public static final int activity_search=0x7f030004;
+        public static final int activity_splashscreen=0x7f030005;
+        public static final int row=0x7f030006;
     }
     public static final class menu {
         public static final int menu_list=0x7f080000;
@@ -76,17 +87,20 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int action_settings=0x7f060002;
         public static final int app_name=0x7f060000;
         public static final int description=0x7f060004;
-        public static final int dummy_button=0x7f06000e;
-        public static final int dummy_content=0x7f06000f;
         public static final int fitId=0x7f060007;
+        public static final int main_screen=0x7f060012;
         public static final int novo_vozilo=0x7f060009;
         public static final int odaberi_sliku=0x7f060008;
         public static final int odabrana_slika=0x7f06000c;
         public static final int product_name=0x7f060003;
+        public static final int search_button_text=0x7f06000f;
+        public static final int search_vehicles=0x7f060010;
         public static final int sva_vozila=0x7f06000a;
         public static final int title_activity_detail=0x7f06000d;
         public static final int title_activity_list_all=0x7f060005;
+        public static final int title_activity_menu_screen=0x7f060011;
         public static final int title_activity_new_vehicle=0x7f060001;
+        public static final int title_activity_search=0x7f06000e;
         public static final int upload_f=0x7f060006;
         public static final int upload_slike=0x7f06000b;
     }

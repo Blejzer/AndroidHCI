@@ -36,13 +36,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- * 
- * @see SystemUiHider
- */
-public class NewVehicleActivity extends Activity  implements OnClickListener{
+public class NewVehicleActivity extends Activity implements OnClickListener{
 	
 	private TextView messageText;
 	private Button uploadButton, btnselectpic;
@@ -362,7 +356,22 @@ public class NewVehicleActivity extends Activity  implements OnClickListener{
 			ii.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(ii);
 			return true;
+		case R.id.search:
+			Intent iii = new Intent(getApplicationContext(),
+					SearchActivity.class);
+			// Closing all previous activities
+			iii.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(iii);
+			return true;
+		case R.id.main:
+			Intent iv = new Intent(getApplicationContext(),
+					MenuScreenActivity.class);
+			// Closing all previous activities
+			iv.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(iv);
+			return true;
 		}
+		
 		return false;
 	}
 }

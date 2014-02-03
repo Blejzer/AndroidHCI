@@ -20,7 +20,7 @@
          android:text="@string/odaberi_sliku"
          android:textColor="@color/white" />
      
-     <!-- Name Label -->
+    <!-- Name Label -->
     <TextView android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/product_name"

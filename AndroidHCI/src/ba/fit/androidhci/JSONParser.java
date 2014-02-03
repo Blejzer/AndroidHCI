@@ -56,7 +56,7 @@ public class JSONParser {
 				// request method is GET
 				DefaultHttpClient httpClient = new DefaultHttpClient();
 				String paramString = URLEncodedUtils.format(params, "utf-8");
-				url += "?" + paramString;
+				// url += "?" + paramString; // Ovdje pocistiti, a u NamesParser rijesiti dodavanje parametara za pretragu!!!
 				HttpGet httpGet = new HttpGet(url);
 				System.out.println(url);
 
