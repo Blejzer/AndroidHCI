@@ -64,6 +64,12 @@
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
+        <activity
+            android:name="ba.fit.androidhci.LoginscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_loginscreen"
+            android:theme="@style/FullscreenTheme" >
+        </activity>
     </application>
 
 </manifest>

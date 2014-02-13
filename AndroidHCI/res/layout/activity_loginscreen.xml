@@ -1,0 +1,84 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/black_overlay"
+    android:orientation="vertical"
+    tools:context=".LoginscreenActivity" >
+
+    <!-- Name Label -->
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+		android:layout_marginTop="25dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+        android:text="@string/product_name"
+        android:textColor="@color/white"
+        android:textSize="17dip" />
+
+    <!-- Input Name -->
+
+    <EditText
+        android:id="@+id/inputUserName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvUserName"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="15dip"
+        android:inputType="text"
+        android:singleLine="true"
+        android:textColor="@color/white" />
+    
+    <!-- Name Label -->
+
+    <TextView
+        android:id="@+id/tvPassword"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+		android:layout_below="@+id/inputUserName"
+		android:layout_margin="15dp"
+        android:text="Password"
+        android:textColor="@color/white"
+        android:textSize="17dip" />
+
+    <!-- Input Name -->
+
+    <EditText
+        android:id="@+id/inputPassword"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="15dip"
+        android:inputType="text"
+        android:singleLine="true"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/inputPassword"
+        android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:drawableLeft="@drawable/ic_login2"
+        android:text="Login"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+        android:text=""
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+</RelativeLayout>
