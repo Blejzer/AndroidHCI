@@ -1,17 +1,17 @@
 <resources>
 
-    <string name="title_activity_login">Prijava</string>
+    <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Lozinka</string>
-    <string name="action_sign_in_register"><b>Prijavi se</b> ili registruj</string>
-    <string name="action_sign_in_short">Prijavi se</string>
-    <string name="action_forgot_password">Zaboravljena lozinka</string>
+    <string name="prompt_email">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in_register"><b>Sign in</b> or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_forgot_password">Recover lost password</string>
     <string name="login_progress_signing_in">Signing in&#8230;</string>
-    <string name="error_invalid_email">Ovaj email nije validan</string>
+    <string name="error_invalid_email">This user name is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">Lozinka je neispravna</string>
-    <string name="error_field_required">Ovo polje je obavezno</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
 
 </resources>

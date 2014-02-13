@@ -33,9 +33,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
         public static final int ic_launcher2=0x7f020001;
-        public static final int imgright=0x7f020002;
-        public static final int list_bg=0x7f020003;
-        public static final int profile=0x7f020004;
+        public static final int ic_login=0x7f020002;
+        public static final int ic_login2=0x7f020003;
+        public static final int imgright=0x7f020004;
+        public static final int list_bg=0x7f020005;
+        public static final int profile=0x7f020006;
+        public static final int repeat_bg=0x7f020007;
     }
     public static final class id {
         public static final int action_forgot_password=0x7f090023;

@@ -1,7 +1,5 @@
 package ba.fit.androidhci;
 
-import ba.fit.androidhci.MainScreenActivity.MyTask;
-import ba.fit.androidhci.NewVehicleActivity.CreateNewProduct;
 import ba.fit.androidhci.util.SystemUiHider;
 import ba.fit.androidhci.util.Utils;
 
