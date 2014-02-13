@@ -1,20 +1,14 @@
 package ba.fit.androidhci;
 
-import ba.fit.androidhci.MainScreenActivity.MyTask;
-import ba.fit.androidhci.util.SystemUiHider;
 import ba.fit.androidhci.util.Utils;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -36,15 +30,12 @@ public class LoginscreenActivity extends Activity implements OnClickListener{
 
 	// url to create new product
 	private static String url_for_login = "http://www.tabletzasvakog.com/android_fit/get_user_details.php";
-
-	// JSON Node names
-	private static final String TAG_SUCCESS = "success";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.activity_search);
+		setContentView(R.layout.activity_loginscreen);
 		
 		loginButton = (Button)findViewById(R.id.loginButton);
 		inputUserName = (EditText) findViewById(R.id.inputUserName);
@@ -52,7 +43,14 @@ public class LoginscreenActivity extends Activity implements OnClickListener{
 		
 		message = (TextView) findViewById(R.id.tvMessage);
 		
-		message.setText("Unesite cijeli ili parcijalni broj registarskih oznaka.");
+		if(getIntent().hasExtra("msg")){
+			Bundle extras = getIntent().getExtras();
+			message.setText(extras.getString("msg"));
+		} else{
+			message.setText("");
+		}
+		
+		
 		
 		loginButton.setOnClickListener(this);
 		
@@ -73,7 +71,7 @@ if (arg0==loginButton) {
 			 } else {
 				 
 				 // ovdje pozivam  mytask class
-				 new MyTask().execute(url_for_login);
+				 new MyTask().execute(url_for_login+"?username="+inputUserName.getText()+"&password="+inputPassword.getText());
 			 }
 		}
 	}
@@ -93,7 +91,7 @@ if (arg0==loginButton) {
 			super.onPreExecute();
 
 			pDialog = new ProgressDialog(LoginscreenActivity.this);
-			pDialog.setMessage("Ucitavam...");
+			pDialog.setMessage("Provjeravam...");
 			pDialog.show();
 
 		}
@@ -101,7 +99,7 @@ if (arg0==loginButton) {
 		@Override
 		protected Void doInBackground(String... params) {
 			checkedUser = new NamesParser().getUserData(params[0]);
-// ovdje ide logika provjere podataka
+			// ovdje ide logika provjere podataka
 			return null;
 		}
 
@@ -114,17 +112,19 @@ if (arg0==loginButton) {
 			}
 
 			if (null == checkedUser.getUid()) {
-				showToast("Nema podataka sa weba!!!");
+				String s = "Unijeli ste neispravne podatke!!!";
+
 				Intent i = new Intent(getApplicationContext(),
 						LoginscreenActivity.class);
+				i.putExtra("msg", s);
 				// Closing all previous activities
 				i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(i);
 			} else {
 				Intent i = new Intent(LoginscreenActivity.this,
-						MainScreenActivity.class);
+						MenuScreenActivity.class);
 				i.putExtra("checkedUser", checkedUser.getUsername());
-				Log.d("link", i.getExtras().getString("link"));
+				Log.d("link", i.getExtras().getString("checkedUser"));
 				// Closing all previous activities
 				i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(i);

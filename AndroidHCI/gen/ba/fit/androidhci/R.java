@@ -41,62 +41,54 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int repeat_bg=0x7f020007;
     }
     public static final class id {
-        public static final int action_forgot_password=0x7f090028;
-        public static final int buttonAllVehicles=0x7f090013;
-        public static final int buttonNewVehicle=0x7f090015;
-        public static final int buttonSearchVehicles=0x7f090014;
-        public static final int button_selectpic=0x7f090017;
-        public static final int email=0x7f090008;
-        public static final int gallery=0x7f09002a;
-        public static final int image=0x7f090020;
-        public static final int imageView1=0x7f090023;
-        public static final int imageView_pic=0x7f090016;
-        public static final int imgLogo=0x7f09001f;
+        public static final int action_forgot_password=0x7f090021;
+        public static final int buttonAllVehicles=0x7f09000c;
+        public static final int buttonNewVehicle=0x7f09000e;
+        public static final int buttonSearchVehicles=0x7f09000d;
+        public static final int button_selectpic=0x7f090010;
+        public static final int gallery=0x7f090023;
+        public static final int image=0x7f090019;
+        public static final int imageView1=0x7f09001c;
+        public static final int imageView_pic=0x7f09000f;
+        public static final int imgLogo=0x7f090018;
         public static final int imgdesc=0x7f090002;
-        public static final int inputDesc=0x7f090019;
-        public static final int inputName=0x7f090018;
-        public static final int inputPassword=0x7f09000f;
-        public static final int inputSearchTerm=0x7f09001d;
-        public static final int inputUserName=0x7f09000d;
-        public static final int listview=0x7f090012;
-        public static final int login=0x7f09000a;
-        public static final int loginButton=0x7f090010;
-        public static final int login_form=0x7f090007;
-        public static final int login_status=0x7f090005;
-        public static final int login_status_message=0x7f090006;
-        public static final int main=0x7f09002c;
-        public static final int messageText=0x7f09001b;
-        public static final int newvehicle=0x7f090029;
-        public static final int password=0x7f090009;
-        public static final int pbar=0x7f090027;
+        public static final int inputDesc=0x7f090012;
+        public static final int inputName=0x7f090011;
+        public static final int inputPassword=0x7f090008;
+        public static final int inputSearchTerm=0x7f090016;
+        public static final int inputUserName=0x7f090006;
+        public static final int listview=0x7f09000b;
+        public static final int loginButton=0x7f090009;
+        public static final int main=0x7f090025;
+        public static final int messageText=0x7f090014;
+        public static final int newvehicle=0x7f090022;
+        public static final int pbar=0x7f090020;
         public static final int pbardesc=0x7f090004;
-        public static final int search=0x7f09002b;
-        public static final int searchButton=0x7f09001e;
-        public static final int sign_in_button=0x7f09000b;
-        public static final int tvMessage=0x7f090011;
-        public static final int tvPassword=0x7f09000e;
-        public static final int tvProductName=0x7f09001c;
-        public static final int tvUserName=0x7f09000c;
-        public static final int tvcreated=0x7f090022;
+        public static final int search=0x7f090024;
+        public static final int searchButton=0x7f090017;
+        public static final int tvMessage=0x7f09000a;
+        public static final int tvPassword=0x7f090007;
+        public static final int tvProductName=0x7f090015;
+        public static final int tvUserName=0x7f090005;
+        public static final int tvcreated=0x7f09001b;
         public static final int tvdescription=0x7f090003;
         public static final int tvdescriptiontitle=0x7f090001;
-        public static final int tvname=0x7f090021;
+        public static final int tvname=0x7f09001a;
         public static final int tvregplate=0x7f090000;
-        public static final int tvtextc=0x7f090024;
-        public static final int tvtextu=0x7f090025;
-        public static final int tvupdated=0x7f090026;
-        public static final int uploadButton=0x7f09001a;
+        public static final int tvtextc=0x7f09001d;
+        public static final int tvtextu=0x7f09001e;
+        public static final int tvupdated=0x7f09001f;
+        public static final int uploadButton=0x7f090013;
     }
     public static final class layout {
         public static final int activity_detail=0x7f030000;
-        public static final int activity_login=0x7f030001;
-        public static final int activity_loginscreen=0x7f030002;
-        public static final int activity_main_screen=0x7f030003;
-        public static final int activity_menu_screen=0x7f030004;
-        public static final int activity_new_vehicle=0x7f030005;
-        public static final int activity_search=0x7f030006;
-        public static final int activity_splashscreen=0x7f030007;
-        public static final int row=0x7f030008;
+        public static final int activity_loginscreen=0x7f030001;
+        public static final int activity_main_screen=0x7f030002;
+        public static final int activity_menu_screen=0x7f030003;
+        public static final int activity_new_vehicle=0x7f030004;
+        public static final int activity_search=0x7f030005;
+        public static final int activity_splashscreen=0x7f030006;
+        public static final int row=0x7f030007;
     }
     public static final class menu {
         public static final int login=0x7f080000;
@@ -144,19 +136,16 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
 
-
     
 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
 
-
         
 
         Base application theme for API 11+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
-
     
  API 11 theme customizations can go here. 
 
