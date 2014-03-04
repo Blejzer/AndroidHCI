@@ -65,6 +65,12 @@
             android:label="@string/title_activity_loginscreen"
             android:theme="@style/FullscreenTheme" >
         </activity>
+        <activity
+            android:name="ba.fit.androidhci.EditActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_edit"
+            android:theme="@style/FullscreenTheme" >
+        </activity>
     </application>
 
 </manifest>

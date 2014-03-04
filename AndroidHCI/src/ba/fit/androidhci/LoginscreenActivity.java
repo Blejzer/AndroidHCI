@@ -4,6 +4,7 @@ import ba.fit.androidhci.util.Utils;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -99,7 +100,6 @@ if (arg0==loginButton) {
 		@Override
 		protected Void doInBackground(String... params) {
 			checkedUser = new NamesParser().getUserData(params[0]);
-			// ovdje ide logika provjere podataka
 			return null;
 		}
 
@@ -112,6 +112,15 @@ if (arg0==loginButton) {
 			}
 
 			if (null == checkedUser.getUid()) {
+				
+				Context context = getApplicationContext();
+				CharSequence text = "Unijeli ste pogresan user name i/ili password!";
+				int duration = Toast.LENGTH_LONG;
+
+				Toast toast = Toast.makeText(context, text, duration);
+				toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER_VERTICAL, 0, 0);
+				toast.show();
+				
 				String s = "Unijeli ste neispravne podatke!!!";
 
 				Intent i = new Intent(getApplicationContext(),
@@ -121,14 +130,19 @@ if (arg0==loginButton) {
 				i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(i);
 			} else {
+				Context context = getApplicationContext();
+				CharSequence text = "Login uspjesan!" + " \n Dobrodosao, "+checkedUser.getUsername();
+				int duration = Toast.LENGTH_LONG;
+
+				Toast toast = Toast.makeText(context, text, duration);
+				toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER_VERTICAL, 0, 0);
+				toast.show();
+				
 				Intent i = new Intent(LoginscreenActivity.this,
 						MenuScreenActivity.class);
-				i.putExtra("checkedUser", checkedUser.getUsername());
-				Log.d("link", i.getExtras().getString("checkedUser"));
 				// Closing all previous activities
 				i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(i);
-				dialog.dismiss();
 			}
 		}
 	}
