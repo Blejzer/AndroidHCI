@@ -9,6 +9,8 @@ import com.nostra13.universalimageloader.core.ImageLoadingListener;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -103,5 +105,49 @@ public class DetailActivity extends Activity {
 	}
 	
 	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.menu_list, menu);
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.newvehicle:
+			//define the file-name to save photo taken by Camera activity
+			Intent i = new Intent(getApplicationContext(),
+					NewVehicleActivity.class);
+			// Closing all previous activities
+			i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(i);
+			return true;
+
+		case R.id.gallery:
+			Intent ii = new Intent(getApplicationContext(),
+					MainScreenActivity.class);
+			// Closing all previous activities
+			ii.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(ii);
+			return true;
+		case R.id.search:
+			Intent iii = new Intent(getApplicationContext(),
+					SearchActivity.class);
+			// Closing all previous activities
+			iii.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(iii);
+			return true;
+		case R.id.main:
+			Intent iv = new Intent(getApplicationContext(),
+					MenuScreenActivity.class);
+			// Closing all previous activities
+			iv.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(iv);
+			return true;
+		}
+		
+		return false;
+	}
 	
 }

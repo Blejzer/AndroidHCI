@@ -64,7 +64,7 @@ if (arg0==searchButton) {
 			
 			if(inputSearchTerm.getText().toString().compareTo("") == 0) {
 			     // Your piece of code for example
-			     Toast toast=Toast.makeText(getApplicationContext(), "Polja 'Naziv' i 'Opis' ne mogu biti prazna!", Toast.LENGTH_SHORT);  
+			     Toast toast=Toast.makeText(getApplicationContext(), "Polje za pretrazivanje ne moze biti prazno!", Toast.LENGTH_SHORT);  
 			     toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL, 0, 0);
 			     toast.show();
 			 } else {

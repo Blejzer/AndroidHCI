@@ -148,7 +148,7 @@ public class EditActivity extends Activity implements OnClickListener{
 			
 			if(inputName.getText().toString().compareTo("") == 0 || inputDesc.getText().toString().compareTo("") == 0) {
 			     // Your piece of code for example
-			     Toast toast=Toast.makeText(getApplicationContext(), "Polja 'Naziv' i 'Opis' ne mogu biti prazna! \nMorate odabrati sliku!", Toast.LENGTH_SHORT);  
+			     Toast toast=Toast.makeText(getApplicationContext(), "Polja 'Registarska oznaka' i 'Opis' ne mogu biti prazna! \nMorate odabrati sliku!", Toast.LENGTH_SHORT);  
 			     toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL, 0, 0);
 			     toast.show();
 			 } else {
@@ -171,6 +171,21 @@ public class EditActivity extends Activity implements OnClickListener{
 				}).start();
 			}
 			new EditProduct().execute();
+			
+
+			String link = null;
+			if(imagepath!=null){
+				link = "http://www.tabletzasvakog.com/android_fit/images/" + (new File(imagepath).getName());
+			}else{
+				link = url;
+			}
+			Intent intent = new Intent(EditActivity.this, DetailActivity.class);
+			intent.putExtra("link", link);
+			intent.putExtra("regplate", inputName.getText().toString());
+			intent.putExtra("description", inputDesc.getText().toString());
+			intent.putExtra("pid", pid);
+			startActivity(intent);
+			
 				 
 			}
 			
