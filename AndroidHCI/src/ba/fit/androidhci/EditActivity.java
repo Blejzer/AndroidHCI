@@ -14,6 +14,11 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.ImageLoadingListener;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -33,6 +38,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +53,13 @@ public class EditActivity extends Activity implements OnClickListener{
 
 	private String upLoadServerUri = null;
 	private String imagepath=null;
+	private String deleteOldImage = null;
+	private String pid = null;
+	
+	private DisplayImageOptions options;
+	private ImageLoader imageLoader;
+
+	private ProgressBar pbar;
 	
 
 	JSONParser jsonParser = new JSONParser();
@@ -54,10 +67,12 @@ public class EditActivity extends Activity implements OnClickListener{
 	EditText inputDesc;
 
 	// url to create new product
-	private static String url_create_vehicle = "http://www.tabletzasvakog.com/android_fit/create_product.php";
+	private static String url_update_vehicle = "http://www.tabletzasvakog.com/android_fit/update_product.php";
 
 	// JSON Node names
 	private static final String TAG_SUCCESS = "success";
+	private Bundle b;
+	private String url;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +80,7 @@ public class EditActivity extends Activity implements OnClickListener{
 
 		setContentView(R.layout.activity_edit);
 
-		
+		pbar = (ProgressBar) findViewById(R.id.pbarEdit);
 		uploadButton = (Button)findViewById(R.id.uploadButton);
 		messageText  = (TextView)findViewById(R.id.messageText);
 		btnselectpic = (Button)findViewById(R.id.button_selectpic);
@@ -77,7 +92,48 @@ public class EditActivity extends Activity implements OnClickListener{
 		btnselectpic.setOnClickListener(this);
 		uploadButton.setOnClickListener(this);
 		upLoadServerUri = "http://www.tabletzasvakog.com/android_fit/UploadToServer.php";
+		deleteOldImage = "http://www.tabletzasvakog.com/android_fit/updateImage.php";
 		
+		b = getIntent().getExtras();
+		
+		inputName.setText(b.getString("regplate"));
+		inputDesc.setText(b.getString("description"));
+		pid = b.getString("pid");
+		
+		url = b.getString("link");
+		loadImageFromURL(url);
+		
+		
+	}
+	
+	private void loadImageFromURL(String url) {
+		options = new DisplayImageOptions.Builder()
+				.showStubImage(R.drawable.profile)
+				.showImageForEmptyUrl(R.drawable.profile).cacheInMemory()
+				.cacheOnDisc().build();
+
+		imageLoader = ImageLoader.getInstance();
+		imageLoader.init(ImageLoaderConfiguration.createDefault(this));
+		imageLoader.displayImage(url, imageview, options,
+				new ImageLoadingListener() {
+					@Override
+					public void onLoadingComplete() {
+						pbar.setVisibility(View.INVISIBLE);
+
+					}
+
+					@Override
+					public void onLoadingFailed() {
+
+						pbar.setVisibility(View.INVISIBLE);
+					}
+
+					@Override
+					public void onLoadingStarted() {
+						pbar.setVisibility(View.VISIBLE);
+					}
+				});
+
 	}
 	
 	public void onClick(View arg0) {
@@ -90,28 +146,34 @@ public class EditActivity extends Activity implements OnClickListener{
 		}
 		else if (arg0==uploadButton) {
 			
-			if(inputName.getText().toString().compareTo("") == 0 || inputDesc.getText().toString().compareTo("") == 0 || imagepath==null) {
+			if(inputName.getText().toString().compareTo("") == 0 || inputDesc.getText().toString().compareTo("") == 0) {
 			     // Your piece of code for example
 			     Toast toast=Toast.makeText(getApplicationContext(), "Polja 'Naziv' i 'Opis' ne mogu biti prazna! \nMorate odabrati sliku!", Toast.LENGTH_SHORT);  
 			     toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL, 0, 0);
 			     toast.show();
 			 } else {
-			dialog = ProgressDialog.show(EditActivity.this, "", "Uploadujem sliku...", true);
-			messageText.setText("Upload je zapoceo.....");
-			//Ovdje dodajem kod za dodavanje proizvoda u bazu
 
-			// creating new product in background thread
-			new CreateNewProduct().execute();
-			// kraj dodanog koda
+			// ukoliko je promijenjena slika obrisi staru i snimi novu, ako nije samo updataj podatke
+			if(imagepath!=null){
+				dialog = ProgressDialog.show(EditActivity.this, "", "Uploadujem sliku...", true);
+				messageText.setText("Upload je zapoceo.....");
+				
+				new DeleteImage().execute();
+				
+				new Thread(new Runnable() {
+					public void run() {
 
-			new Thread(new Runnable() {
-				public void run() {
+						
+						uploadFile(imagepath);
+						
 
-					uploadFile(imagepath);
-
-				}
-			}).start(); 
-			 }
+					}
+				}).start();
+			}
+			new EditProduct().execute();
+				 
+			}
+			
 		}
 
 	} 
@@ -275,19 +337,22 @@ public class EditActivity extends Activity implements OnClickListener{
 
 		} // End else block 
 	}
-	// Klasa dodavanje novog proizvoda
+	
+	
+	// Klasa brisanje slike sa servera
 	/**
 	 * Background Async Task to Create new product
 	 * */
-	class CreateNewProduct extends AsyncTask<String, String, String> {
+	class DeleteImage extends AsyncTask<String, String, String> {
 
 		/**
-		 * Creating product
+		 * Deleting image
 		 * */
 		protected String doInBackground(String... args) {
 			String regPlate = inputName.getText().toString();
 			String description = inputDesc.getText().toString();
-			String link = "http://www.tabletzasvakog.com/android_fit/images/" + (new File(imagepath).getName());
+			String link = url.substring(url.lastIndexOf("/"));
+			Log.d("testing url: ", link);
 
 			// Building Parameters
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -297,7 +362,7 @@ public class EditActivity extends Activity implements OnClickListener{
 
 			// getting JSON Object
 			// Note that create product url accepts POST method
-			JSONObject json = jsonParser.makeHttpRequest(url_create_vehicle,
+			JSONObject json = jsonParser.makeHttpRequest(deleteOldImage,
 					"POST", params);
 
 			// check log cat fro response
@@ -308,7 +373,7 @@ public class EditActivity extends Activity implements OnClickListener{
 				int success = json.getInt(TAG_SUCCESS);
 
 				if (success == 1) {
-					// successfully created product
+					// successfully deleted picture
 					/*Intent i = new Intent(getApplicationContext(), AllProductsActivity.class);
 					startActivity(i);*/
 					Log.d("Create Response", String.valueOf(success));
@@ -325,6 +390,68 @@ public class EditActivity extends Activity implements OnClickListener{
 		}
 
 	}
+	
+	
+
+	// Klasa dodavanje novog proizvoda
+		/**
+		 * Background Async Task to Create new product
+		 * */
+		class EditProduct extends AsyncTask<String, String, String> {
+
+			/**
+			 * Creating product
+			 * */
+			protected String doInBackground(String... args) {
+				String regPlate = inputName.getText().toString();
+				String description = inputDesc.getText().toString();
+				String link = null;
+				if(imagepath!=null){
+					link = "http://www.tabletzasvakog.com/android_fit/images/" + (new File(imagepath).getName());
+				}else{
+					link = url;
+				}
+				
+
+				// Building Parameters
+				List<NameValuePair> params = new ArrayList<NameValuePair>();
+				params.add(new BasicNameValuePair("name", regPlate));
+				params.add(new BasicNameValuePair("description", description));
+				params.add(new BasicNameValuePair("link", link));
+				params.add(new BasicNameValuePair("pid", pid));
+
+				// getting JSON Object
+				// Note that create product url accepts POST method
+				JSONObject json = jsonParser.makeHttpRequest(url_update_vehicle,
+						"POST", params);
+
+				// check log cat fro response
+				Log.d("Create Response", json.toString());
+
+				// check for success tag
+				try {
+					int success = json.getInt(TAG_SUCCESS);
+
+					if (success == 1) {
+						// successfully created product
+						/*Intent i = new Intent(getApplicationContext(), AllProductsActivity.class);
+						startActivity(i);*/
+						Log.d("Create Response", String.valueOf(success));
+						// closing this screen
+						// finish();
+					} else {
+						// failed to create product
+					}
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+
+				return null;
+			}
+
+		}
+		
+	
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

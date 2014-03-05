@@ -157,6 +157,7 @@ public class MainScreenActivity extends Activity implements OnItemClickListener 
 			long id) {
 		Item item = arrayOfList.get(position);
 		Intent intent = new Intent(MainScreenActivity.this, DetailActivity.class);
+		intent.putExtra("pid", item.getPid());
 		intent.putExtra("link", item.getLink());
 		intent.putExtra("regplate", item.getRegPlate());
 		intent.putExtra("description", item.getDescription());

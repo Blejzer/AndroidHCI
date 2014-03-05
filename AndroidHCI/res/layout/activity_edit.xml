@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -7,11 +7,21 @@
     android:orientation="vertical"
     tools:context=".NewVehicleActivity" >
 
+    <ProgressBar
+            android:id="@+id/pbarEdit"
+            style="@android:style/Widget.ProgressBar.Small.Inverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageView_pic"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="28dp" />
+
     <ImageView
         android:id="@+id/imageView_pic"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
         android:contentDescription="@string/odabrana_slika"
         android:src="@drawable/ic_launcher" />
 
@@ -20,13 +30,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Promijeni sliku"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:layout_below="@+id/imageView_pic" />
 
     <!-- Name Label -->
 
     <TextView
+        android:id="@+id/regTag"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/button_selectpic"
         android:paddingLeft="10dip"
         android:paddingRight="10dip"
         android:paddingTop="10dip"
@@ -44,11 +57,13 @@
         android:layout_marginBottom="15dip"
         android:inputType="text"
         android:singleLine="true"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:layout_below="@+id/regTag" />
 
     <!-- Description Label -->
 
     <TextView
+        android:id="@+id/descTag"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="10dip"
@@ -56,7 +71,8 @@
         android:paddingTop="10dip"
         android:text="@string/description"
         android:textColor="@color/white"
-        android:textSize="17dip" />
+        android:textSize="17dip"
+        android:layout_below="@+id/inputName" />
 
     <!-- Input description -->
 
@@ -69,14 +85,16 @@
         android:gravity="top"
         android:inputType="text"
         android:lines="4"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:layout_below="@+id/descTag" />
 
     <Button
         android:id="@+id/uploadButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/upload_slike"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:layout_below="@+id/inputDesc" />
 
     <TextView
         android:id="@+id/messageText"
@@ -84,6 +102,7 @@
         android:layout_height="wrap_content"
         android:text=""
         android:textColor="@color/white"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_below="@+id/uploadButton" />
 
-</LinearLayout>
+</RelativeLayout>
